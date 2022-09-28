@@ -103,13 +103,13 @@ module.exports = {
 
                     const token = createToken(findUser.id)
 
-                    res.status(200).json({ "status": true, "message": "Loged in succsess", "token": token })
+                    res.status(200).json({ "status": true, "message": "Logged in succsessfully", "token": token })
                 } else {
-                    res.status(404).json({ "status": false, "message": "Password Dosen't Match"})
+                    res.status(404).json({ "status": false, "message": "Password dosen't match"})
                 }
 
             } else {
-                res.status(404).json({ "status": false, "message": "User n't registerd"})
+                res.status(404).json({ "status": false, "message": "User not registerd"})
             }
 
         } catch (error) {
