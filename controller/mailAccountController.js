@@ -69,7 +69,7 @@ module.exports = {
 
     verifyOtp: asyncHandler(async (req, res, next) => {
         const { user_otp, _id } = req.body
-        console.log("user otp" + user_otp + "send otp" + otpGlobal);
+        console.log("user otp" + user_otp + "send otp" + otpGlobal, +_id,);
         if (user_otp == otpGlobal) {
             console.log("user otp  " + user_otp + "   send otp  " + otpGlobal);
             const add = await User.findByIdAndUpdate({ _id: _id }, { $set: { user_isVerified: true } })
