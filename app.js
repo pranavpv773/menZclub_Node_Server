@@ -3,6 +3,7 @@ const express = require("express")
 const app = express()
 require("dotenv").config()
 const accountRoutes = require("./routes/accountRoutes")
+const adminRouter = require("./routes/adminRoutes")
 
 
 // db connect
@@ -26,5 +27,5 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use("/account", accountRoutes)
-
+app.use(adminRouter)
 
