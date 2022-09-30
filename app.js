@@ -6,6 +6,7 @@ const accountRoutes = require("./routes/accountRoutes")
 const adminRouter = require("./routes/adminRoutes")
 const shirtRouter = require("./routes/shirtRoutes")
 const tShirtRouter = require("./routes/tShirtRoutes")
+const jeansRouter=require("./routes/jeansRouter")
 // db connect
 db.on('error', console.error.bind(console, 'Mongodb connection failed'))
 
@@ -30,3 +31,4 @@ app.use("/account", accountRoutes)
 app.use(adminRouter)
 app.use(shirtRouter)
 app.use(tShirtRouter)
+app.use(jeansRouter)
