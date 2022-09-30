@@ -22,9 +22,9 @@ adminRouter.post("/admin/add-product", async (req, res) => {
 
         });
         product = await product.save();
-        res.status(200).json({status:"True",message:"Product added succesfully"});
+        res.status(200).json({"status": true, "message": "Product added successfully" });
     } catch (e) {
-        res.status(500).json({status:"True",message: e.message });
+        res.status(500).json({"status": false, "message": e.message});
     }
 });
 
