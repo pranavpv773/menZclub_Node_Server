@@ -4,8 +4,8 @@ const app = express()
 require("dotenv").config()
 const accountRoutes = require("./routes/accountRoutes")
 const adminRouter = require("./routes/adminRoutes")
-
-
+const shirtRouter = require("./routes/shirtRoutes")
+const tShirtRouter = require("./routes/tShirtRoutes")
 // db connect
 db.on('error', console.error.bind(console, 'Mongodb connection failed'))
 
@@ -28,4 +28,5 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/account", accountRoutes)
 app.use(adminRouter)
-
+app.use(shirtRouter)
+app.use(tShirtRouter)
