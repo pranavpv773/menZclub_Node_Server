@@ -34,9 +34,10 @@ jeansRouter.post("/admin/add-jeans", async (req, res) => {
 jeansRouter.get("/api/menzclub/get-jeans", async (req, res) => {
     try {
         const jeans = await Jeans.find({});
-        res.json(jeans);
+    
+        res.status(200).json({jeans, "status":true,message: 'Jeans fetched succesfully'});
     } catch (e) {
-        res.status(500).json({ status:"false",message: e.message });
+        res.status(500).json({ "status":false,message: e.message });
     }
 });
 module.exports = jeansRouter;
