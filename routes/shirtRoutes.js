@@ -43,7 +43,7 @@ shirtRouter.get("/api/menzclub/get-shirt", async (req, res) => {
 shirtRouter.get("/api/menzclub/", async (req, res) => {
     try {
         const shirt = await Shirt.find({ shirt_category: req.query.shirt_category });
-        res.json(shirt);
+        res.status(200).json({shirt, "status": true, "message": "Shirt added successfully"});
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
@@ -51,33 +51,34 @@ shirtRouter.get("/api/menzclub/", async (req, res) => {
 shirtRouter.get("/api/menzclub/collection/", async (req, res) => {
     try {
         const shirt = await Shirt.find({ shirt_collection: req.query.shirt_collection });
-        res.json(shirt);
+        res.status(200).json({shirt, "status": true, "message": "Shirt added successfully"});
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
 });
 shirtRouter.get("/api/menzclub/color/", async (req, res) => {
     try {
-        const shirt = await Shirt.find({ shirt_color: req.query.shirt_color});
-        res.json(shirt);
+        const shirt = await Shirt.find({ shirt_color: req.query.shirt_color });
+        res.status(200).json({ shirt, "status": true, "message": "Shirt added successfully" });
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
 });
 shirtRouter.get("/api/menzclub/material/", async (req, res) => {
     try {
-        const shirt = await Shirt.find({ shirt_material: req.query.shirt_material});
-        res.json(shirt);
+        const shirt = await Shirt.find({ shirt_material: req.query.shirt_material });
+        res.status(200).json({ shirt, "status": true, "message": "Shirt added successfully" });
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
 });
-shirtRouter.get("/api/menzclub/size/", async (req, res) => {
+shirtRouter.get("/api/menzclub/fit/", async (req, res) => {
     try {
-        const shirt = await Shirt.find({ shirt_size: req.query.shirt_size});
-        res.json(shirt);
+        const shirt = await Shirt.find({ shirt_fit: req.query.shirt_fit });
+        res.status(200).json({ shirt, "status": true, "message": "Shirt added successfully" });
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
 });
+
 module.exports = shirtRouter;
