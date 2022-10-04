@@ -34,7 +34,7 @@ tShirtRouter.post("/admin/add-Tshirt", async (req, res) => {
 tShirtRouter.get("/api/menzclub/get-Tshirt", async (req, res) => {
     try {
         const tShirt = await Tshirt.find({});
-        res.json(tShirt);
+        res.status(200).json({tShirt,"status": true, "message": "Shirt added successfully"});
     } catch (e) {
         res.status(500).json({ status: "false", message: e.message });
     }

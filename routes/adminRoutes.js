@@ -37,4 +37,5 @@ adminRouter.get("/api/menzclub/get-products", async (req, res) => {
         res.status(500).json({ status:"false",message: e.message });
     }
 });
+
 module.exports = adminRouter;
