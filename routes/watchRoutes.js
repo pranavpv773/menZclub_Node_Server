@@ -40,4 +40,44 @@ watchRouter.get("/api/menzclub/get-watches", async (req, res) => {
         res.status(500).json({ "status":false,message: e.message });
     }
 });
+watchRouter.get("/api/menzclub/watch/", async (req, res) => {
+    try {
+        const watch = await Watch.find({ watch_category: req.query.watch_category });
+        res.status(200).json({watch, "status": true, "message": "watch_category added successfully"});
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+watchRouter.get("/api/menzclub/watch/collection/", async (req, res) => {
+    try {
+        const watch = await Watch.find({ watch_collection: req.query.watch_collection });
+        res.status(200).json({watch, "status": true, "message": "watch_collection added successfully"});
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+watchRouter.get("/api/menzclub/watch/color/", async (req, res) => {
+    try {
+        const watch = await Watch.find({ watch_color: req.query.watch_color });
+        res.status(200).json({ watch, "status": true, "message": "watch_color added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+watchRouter.get("/api/menzclub/watch/size/", async (req, res) => {
+    try {
+        const watch = await Watch.find({ watch_size: req.query.watch_size });
+        res.status(200).json({ watch, "status": true, "message": "watch_material added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+watchRouter.get("/api/menzclub/watch/fit/", async (req, res) => {
+    try {
+        const watch = await Watch.find({ watch_fit: req.query.watch_fit });
+        res.status(200).json({ watch, "status": true, "message": "watch_fit added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
 module.exports = watchRouter;

@@ -40,4 +40,44 @@ shoesRouter.get("/api/menzclub/get-shoes", async (req, res) => {
         res.status(500).json({ "status":false,message: e.message });
     }
 });
+shoesRouter.get("/api/menzclub/shoes/", async (req, res) => {
+    try {
+        const shoes = await Shoes.find({ shoes_category: req.query.shoes_category });
+        res.status(200).json({shoes, "status": true, "message": "shoes_category added successfully"});
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+shoesRouter.get("/api/menzclub/shoes/collection/", async (req, res) => {
+    try {
+        const shoes = await Shoes.find({ shoes_collection: req.query.shoes_collection });
+        res.status(200).json({shoes, "status": true, "message": "shoes_collection added successfully"});
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+shoesRouter.get("/api/menzclub/shoes/color/", async (req, res) => {
+    try {
+        const shoes = await Shoes.find({ shoes_color: req.query.shoes_color });
+        res.status(200).json({ shoes, "status": true, "message": "shoes_color added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+shoesRouter.get("/api/menzclub/shoes/size/", async (req, res) => {
+    try {
+        const shoes = await Shoes.find({ shoes_size: req.query.shoes_size });
+        res.status(200).json({ shoes, "status": true, "message": "shoes_material added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+shoesRouter.get("/api/menzclub/shoes/fit/", async (req, res) => {
+    try {
+        const shoes = await Shoes.find({ shoes_fit: req.query.shoes_fit });
+        res.status(200).json({ shoes, "status": true, "message": "shoes_fit added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
 module.exports = shoesRouter;
