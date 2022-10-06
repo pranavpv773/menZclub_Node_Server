@@ -30,7 +30,7 @@ jeansRouter.post("/admin/add-jeans", async (req, res) => {
     }
 });
 
-// Get all your shirt
+// Get all your jeans
 jeansRouter.get("/api/menzclub/get-jeans", async (req, res) => {
     try {
         const jeans = await Jeans.find({});
