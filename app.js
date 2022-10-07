@@ -10,11 +10,11 @@ const jeansRouter=require("./routes/jeansRouter")
 const shoesRouter =require("./routes/shoesRoutes")
 const watchRouter =require("./routes/watchRoutes")
 // db connect
-db.on('error', console.error.bind(console, 'Mongodb connection failed'))
 
+db()
 // local host
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => console.log(`server starting ${port}`))
 
