@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+const {jhgvhjg ,productSchema} =require("./productAddModel")
 const userSchema = new mongoose.Schema(
     {
         user_mail: { type: String , required : true , unique : true},
@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema(
         user_number: { type: Number ,required : true , unique : true},
         user_password: { type: String },
         user_isVerified: { type: Boolean },
-        user_date: { type: Date, default: Date.now() }
+        user_date: { type: Date, default: Date.now() },
+        user_cart:[productSchema]
     }
 )
 
