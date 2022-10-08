@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler")
-const User = require("../model/signupModel")
+const { model } = require("../model/signupModel.js")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -22,13 +22,13 @@ module.exports = {
 
             const { user_mail, user_password, user_name, user_number } = req.body
 
-            const match = await User.findOne({ user_mail: user_mail })
+            const match = await model.findOne({ user_mail: user_mail })
 
             if (match) {
                 res.status(404).json({ "status": false, "message": "user already registerd" })
 
             } else {
-                const user = User({
+                const user = model({
                     user_mail,
                     user_name,
                     user_number,
@@ -72,7 +72,7 @@ module.exports = {
         console.log("user otp" + user_otp + "send otp" + otpGlobal, +_id,);
         if (user_otp == otpGlobal) {
             console.log("user otp  " + user_otp + "   send otp  " + otpGlobal);
-            const add = await User.findByIdAndUpdate({ _id: _id }, { $set: { user_isVerified: true } })
+            const add = await model.findByIdAndUpdate({ _id: _id }, { $set: { user_isVerified: true } })
             res.status(200).json({ "status": true, "message": "login success", "jwt": createToken(_id) })
 
         } else {
@@ -93,7 +93,7 @@ module.exports = {
 
             console.log(user_mail, user_password);
 
-            const findUser = await User.findOne({ user_mail: user_mail })
+            const findUser = await model.findOne({ user_mail: user_mail })
 
             if (findUser) {
 
