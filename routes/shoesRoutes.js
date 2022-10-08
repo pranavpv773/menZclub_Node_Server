@@ -80,4 +80,13 @@ shoesRouter.get("/api/menzclub/shoes/fit/", async (req, res) => {
         res.status(500).json({ error: e.message });
     }
 });
+shoesRouter.get("/api/menzclub/shoes/price/:price", async (req, res,) => {
+    try {
+       const shoes_price = req.params.price;
+        const shoes = await Shoes.find({ shoes_price: { $lte: shoes_price }});
+        res.status(200).json({ shoes, "status": true, "message": "shoes_price added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
 module.exports = shoesRouter;
