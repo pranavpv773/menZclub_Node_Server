@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const {jhgvhjg ,productSchema} =require("./productAddModel")
+const {productSchema} =require("./productAddModel")
 const userSchema = new mongoose.Schema(
     {
         user_mail: { type: String , required : true , unique : true},
@@ -8,10 +8,22 @@ const userSchema = new mongoose.Schema(
         user_password: { type: String },
         user_isVerified: { type: Boolean },
         user_date: { type: Date, default: Date.now() },
-        user_cart:[productSchema]
+        address: {
+            type: String,
+            default: "",
+          },
+        user_cart: [
+            {
+              product: productSchema,
+              quantity: {
+                type: Number,
+                required: true,
+              },
+            },
+          ],
     }
 )
 
 const model = mongoose.model("userList", userSchema)
 
-module.exports = model
+module.exports = {model,userSchema};
