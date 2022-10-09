@@ -72,9 +72,10 @@ watchRouter.get("/api/menzclub/watch/material/", async (req, res) => {
         res.status(500).json({ error: e.message });
     }
 });
-watchRouter.get("/api/menzclub/watch/price/", async (req, res,price) => {
+watchRouter.get("/api/menzclub/watch/price/:price", async (req, res,) => {
     try {
-        const watch = await Watch.find({ watch_price: req.query.watch_price<price});
+       const watch_price = req.params.price;
+        const watch = await Watch.find({ watch_price: { $lte: watch_price }});
         res.status(200).json({ watch, "status": true, "message": "watch_fit added successfully" });
     } catch (e) {
         res.status(500).json({ error: e.message });
