@@ -34,7 +34,7 @@ module.exports = {
                     user_number,
                     user_password,
                     user_isVerified: false,
-                    user_cart,
+                   
                 })
 
                 const salt = await bcrypt.genSalt(10)
