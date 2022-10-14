@@ -12,15 +12,15 @@ const userSchema = new mongoose.Schema(
             type: String,
             default: "",
           },
-        user_cart: [
-            {
-              product: [productSchema],
-              quantity: {
-                type: Number,
-                required: true,
-              },
-            },
-          ],
+        // user_cart: [
+        //     {
+        //       product: [productSchema],
+        //       quantity: {
+        //         type: Number,
+        //         required: true,
+        //       },
+        //     },
+        //   ],
     }
 )
 
