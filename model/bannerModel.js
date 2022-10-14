@@ -8,7 +8,7 @@ const bannerSchema = new mongoose.Schema(
                 required: true,
             },
         ],
-        product_date: { type: Date, default: Date.now(), }
+        banner_date: { type: Date, default: Date.now(), }
     }
 )
 const Banner = mongoose.model("Banner", bannerSchema);
