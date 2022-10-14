@@ -29,5 +29,13 @@ bannerRouter.get("/api/menzclub/get-banner", async (req, res) => {
         res.status(500).json({ status:"false",message: e.message });
     }
 });
+bannerRouter.get("/api/menzclub/banner/", async (req, res) => {
+    try {
+        const banner = await Banner.find({ banner_category: req.query.banner_category });
+        res.status(200).json({ banner, "status": true, "message": "banner added successfully" });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
 
 module.exports = bannerRouter;
