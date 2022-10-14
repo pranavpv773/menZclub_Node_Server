@@ -10,6 +10,7 @@ const jeansRouter=require("./routes/jeansRouter")
 const shoesRouter =require("./routes/shoesRoutes")
 const watchRouter =require("./routes/watchRoutes")
 const userRouter = require("./routes/userRoutes")
+const bannerRouter = require("./routes/bannerRoutes")
 // db connect
 
 db()
@@ -38,3 +39,4 @@ app.use(jeansRouter)
 app.use(shoesRouter)
 app.use(watchRouter)
 app.use(userRouter)
+app.use(bannerRouter)
