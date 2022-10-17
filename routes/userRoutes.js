@@ -5,7 +5,7 @@ const { Product } = require("../model/productAddModel.js");
 
 
 
-// Get all your watches
+// Get all users
 userRouter.get("/api/menzclub/get-users", async (req, res) => {
     try {
         const user = await model.find({user_mail:req.query.user_mail});
