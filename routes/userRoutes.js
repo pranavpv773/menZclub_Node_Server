@@ -19,7 +19,6 @@ userRouter.get("/api/menzclub/get-users", async (req, res) => {
 userRouter.post("/api/add-to-cart", async (req, res) => {
   try {
     const { user_mail, user_cart } = req.body;
-    log(req.body)
     let cart = new Cart({
       user_mail,
       user_cart,
