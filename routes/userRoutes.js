@@ -24,7 +24,7 @@ userRouter.post("/api/add-to-cart", async (req, res) => {
       user_cart,
     });
     cart = await cart.save();
-    res.status(200).json({ cart,"status": true, "message": "Cart added successfully" });
+    res.status(200).json({"status": true, "message": "Cart added successfully" });
   } catch (e) {
     res.status(500).json({ "status": false, "message": e.message });
   }
