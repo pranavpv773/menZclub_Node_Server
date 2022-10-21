@@ -19,12 +19,13 @@ userRouter.get("/api/menzclub/get-users", async (req, res) => {
 userRouter.post("/api/add-to-cart", async (req, res) => {
   try {
     const { user_mail, user_cart } = req.body;
+    log(req.body)
     let cart = new Cart({
       user_mail,
       user_cart,
     });
     cart = await cart.save();
-    res.status(200).json({ "status": true, "message": "Cart added successfully" });
+    res.status(200).json({ cart,"status": true, "message": "Cart added successfully" });
   } catch (e) {
     res.status(500).json({ "status": false, "message": e.message });
   }
