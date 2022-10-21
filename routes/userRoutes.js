@@ -32,7 +32,7 @@ userRouter.post("/api/add-to-cart", async (req, res) => {
 userRouter.get("/api/menzclub/get-cart/", async (req, res) => {
   try {
     const cart = await Cart.find({user_mail: req.query.user_mail});
-    res.status(200).json({ user_cart, "status": true, "message": "Shirt added successfully" });
+    res.status(200).json({ cart, "status": true, "message": "Shirt added successfully" });
   } catch (e) {
     res.status(500).json({ status: "false", message: e.message });
   }
