@@ -1,13 +1,9 @@
 const mongoose = require("mongoose")
-//const {productSchema} =require("./productAddModel")
+const { productSchema } =require("./productAddModel.js")
 const cartSchema = new mongoose.Schema(
   {
     user_mail: { type: String, required: true },
-    user_cart: [
-      {
-        type: String,
-        required: true,
-      },],
+    user_cart: [productSchema],
   }
 )
 
