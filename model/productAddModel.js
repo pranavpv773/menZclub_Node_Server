@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 //const ratingSchema = require("./rating");
 const productSchema = new mongoose.Schema(
-    {
+    {   
+        product_id:{type:String,required:true,},
         product_name: { type: String, required: true, },
         product_description: { type: String, required: true, },
         images: [
