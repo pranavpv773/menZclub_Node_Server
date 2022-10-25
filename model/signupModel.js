@@ -12,15 +12,6 @@ const userSchema = new mongoose.Schema(
             type: String,
             default: "",
           },
-          cart: [
-            {
-              product: productSchema,
-              quantity: {
-                type: Number,
-                required: true,
-              },
-            },
-          ],
     }
 )
 
