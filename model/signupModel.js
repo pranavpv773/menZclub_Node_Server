@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const {productSchema} =require("./productAddModel")
+//const {productSchema} =require("./productAddModel")
 const userSchema = new mongoose.Schema(
     {
         user_mail: { type: String , required : true , unique : true},
