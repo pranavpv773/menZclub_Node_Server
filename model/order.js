@@ -2,15 +2,7 @@ const mongoose = require("mongoose");
 const {productSchema} =require("./productAddModel.js")
 
 const orderSchema = mongoose.Schema({
-  products: [
-    {
-      product: [productSchema],
-      quantity: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
+  products: [productSchema],
   totalPrice: {
     type: Number,
     required: true,
