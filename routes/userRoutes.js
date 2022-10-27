@@ -37,10 +37,10 @@ userRouter.get("/api/menzclub/get-cart/", async (req, res) => {
     res.status(500).json({ status: "false", message: e.message });
   }
 });
-userRouter.post("/admin/delete-cart", async (req, res) => {
+userRouter.post("/admin/delete-cart/", async (req, res) => {
   try {
-    const { id } = req.body;
-    let product = await Cart.findByIdAndDelete(id);
+    const { _id } = req.body;
+    let product = await Cart.findByIdAndDelete(_id);
     res.json(product);
   } catch (e) {
     res.status(500).json({ error: e.message });
