@@ -11,7 +11,7 @@ const orderSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  user_mail: {
     required: true,
     type: String,
   },
@@ -20,7 +20,7 @@ const orderSchema = mongoose.Schema({
     required: true,
   },
   status: {
-    type: Number,
+    bool: false,
     default: 0,
   },
 });
