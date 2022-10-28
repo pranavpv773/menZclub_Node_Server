@@ -62,7 +62,7 @@ userRouter.post("/admin/delete-cart/", async (req, res) => {
    // const { _id } = req.body;
     
     let product = await Cart.findByIdAndDelete({_id:req.query._id});
-    res.json(product);
+    res.status(200).json({ "status": true, "message": "Product removed from cart successfully" });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
