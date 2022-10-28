@@ -16,6 +16,8 @@ userRouter.get("/api/menzclub/get-users", async (req, res) => {
     res.status(500).json({ "status": false, message: e.message });
   }
 });
+
+
 userRouter.post("/api/add-to-cart", async (req, res) => {
   try {
     const { user_mail, user_cart } = req.body;
@@ -29,6 +31,22 @@ userRouter.post("/api/add-to-cart", async (req, res) => {
     res.status(500).json({ "status": false, "message": e.message });
   }
 });
+
+
+// save user address
+userRouter.post("/api/save-user-address/", async (req, res) => {
+  try {
+  //  const { address } = req.body;
+    let user = await model.find({user_mail: req.query.user_mail});
+    user.address = address;
+    user = await user.save();
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+
 userRouter.get("/api/menzclub/get-cart/", async (req, res) => {
   try {
     const cart = await Cart.find({user_mail: req.query.user_mail});
@@ -37,16 +55,20 @@ userRouter.get("/api/menzclub/get-cart/", async (req, res) => {
     res.status(500).json({ status: "false", message: e.message });
   }
 });
+
+
 userRouter.post("/admin/delete-cart/", async (req, res) => {
   try {
-    const { _id } = req.body;
+   // const { _id } = req.body;
     
-    let product = await Cart.findByIdAndDelete(_id);
+    let product = await Cart.findByIdAndDelete({_id:req.query._id});
     res.json(product);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
+
+
 userRouter.post("/api/order/", async (req, res) => {
   try {
     const { cart, totalPrice, address } = req.body;
@@ -83,6 +105,7 @@ userRouter.post("/api/order/", async (req, res) => {
   }
 });
 
+
 userRouter.get("/api/orders/me", async (req, res) => {
   try {
     const orders = await Order.find({ user_mail: req.user });
@@ -91,4 +114,6 @@ userRouter.get("/api/orders/me", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
+
 module.exports = userRouter;
