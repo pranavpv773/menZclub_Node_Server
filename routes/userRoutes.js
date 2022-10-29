@@ -69,10 +69,10 @@ userRouter.post("/admin/delete-cart/", async (req, res) => {
 });
 
 
-userRouter.post("/api/order/", async (req, res) => {
+userRouter.post("/api/order", async (req, res) => {
   try {
-    const { cart, totalPrice, address } = req.body;
-    let products = [];
+    // const { cart, totalPrice, address } = req.body;
+    // let products = [];
 
     // for (let i = 0; i < cart.length; i++) {
     //   let product = await Product.findById(cart[i].product._id);
@@ -87,15 +87,15 @@ userRouter.post("/api/order/", async (req, res) => {
     //   }
     // }
 
-    let user = await model.findById(req.user);
-    user.cart = [];
-    user = await user.save();
+    // let user = await model.findById({ user_mail: req.query.user_mail });
+    // user.cart = [];
+    // user = await user.save();
 
     let order = new Order({
       products,
       totalPrice,
       address,
-      user_mail: req.user,
+      user_mail,
       orderedAt: new Date().getTime(),
     });
     order = await order.save();
