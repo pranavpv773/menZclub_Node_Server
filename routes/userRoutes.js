@@ -106,7 +106,7 @@ userRouter.post("/api/order", async (req, res) => {
 });
 
 
-userRouter.get("/api/orders/me", async (req, res) => {
+userRouter.get("/api/orders/me/", async (req, res) => {
   try {
     const orders = await Order.find({ user_mail: req.user });
     res.status(200).json({orders, "status": true, "message": "Product Ordered" });
