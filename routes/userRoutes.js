@@ -71,7 +71,7 @@ userRouter.post("/admin/delete-cart/", async (req, res) => {
 
 userRouter.post("/api/order", async (req, res) => {
   try {
-     const { products,user_mail,totalPrice, address } = req.body;
+     const { products,totalPrice, address,user_mail } = req.body;
     // let products = [];
 
     // for (let i = 0; i < cart.length; i++) {
@@ -99,7 +99,7 @@ userRouter.post("/api/order", async (req, res) => {
       orderedAt: new Date().getTime(),
     });
     order = await order.save();
-    res.json(order);
+    res.status(200).json({order, "status": true, "message": "Product Ordered"});
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -109,7 +109,7 @@ userRouter.post("/api/order", async (req, res) => {
 userRouter.get("/api/orders/me", async (req, res) => {
   try {
     const orders = await Order.find({ user_mail: req.user });
-    res.json({orders, "status": true, "message": "Product Ordered" });
+    res.status(200).json({orders, "status": true, "message": "Product Ordered" });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
