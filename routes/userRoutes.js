@@ -99,7 +99,7 @@ userRouter.post("/api/order", async (req, res) => {
       orderedAt: new Date().getTime(),
     });
     order = await order.save();
-    res.status(200).json({order, "status": true, "message": "Product Ordered"});
+    res.status(200).json({ "status": true, "message": "Product Ordered"});
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
