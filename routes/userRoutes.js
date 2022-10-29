@@ -71,7 +71,7 @@ userRouter.post("/admin/delete-cart/", async (req, res) => {
 
 userRouter.post("/api/order", async (req, res) => {
   try {
-    // const { cart, totalPrice, address } = req.body;
+     const { products,user_mail,totalPrice, address } = req.body;
     // let products = [];
 
     // for (let i = 0; i < cart.length; i++) {
